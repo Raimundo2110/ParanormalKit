@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kits Paranormales</title>
+
+    <!-- Tipografía Lexend -->
+    <link href="https://fonts.googleapis.com/css2?family=Lexend:wght@300&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0b0b0b;
+            --text-color: #eaeaea;
+            --accent-color: #8c00ff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Lexend', sans-serif;
+            font-weight: 300;
+        }
+
+        body {
+            background: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            width: 100%;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.85);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        header h1 {
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+        }
+
+        nav a {
+            color: var(--text-color);
+            margin-left: 1.5rem;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent-color);
+        }
+
+        /* Sección Quiénes somos */
+        section#about {
+            padding: 3rem 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        section#about h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        section#about p {
+            margin-bottom: 1rem;
+        }
+
+        /* Sección de productos */
+        section#kits {
+            padding: 3rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .kit-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+
+        .kit-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+            transition: transform 0.3s ease;
+        }
+
+        .kit-card:hover {
+            transform: translateY(-6px);
+        }
+
+        .kit-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .kit-card-content {
+            padding: 1.5rem;
+        }
+
+        .kit-card-content h3 {
+            margin-bottom: 0.5rem;
+            font-size: 1.3rem;
+        }
+
+        .kit-card-content p {
+            font-size: 0.95rem;
+            margin-bottom: 1rem;
+        }
+
+        .kit-card-content a {
+            display: inline-block;
+            padding: 0.6rem 1rem;
+            background: var(--accent-color);
+            color: #fff;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: background 0.3s ease;
+        }
+
+        .kit-card-content a:hover {
+            background: #5f00b3;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem 1rem;
+            font-size: 0.9rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        @media (max-width: 600px) {
+            header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            nav {
+                margin-top: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>ParanormalKit</h1>
+        <nav>
+            <a href="#about">Nosotros</a>
+            <a href="#kits">Kits</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+    </header>
+
+    <section id="about">
+        <h2>Quiénes Somos</h2>
+        <p>
+            En <strong>ParanormalKit</strong> somos apasionados por el misterio.
+            Reunimos las mejores herramientas para quienes buscan explorar lo desconocido con rigor y seguridad.
+        </p>
+        <p>
+            Ofrecemos kits diseñados para cada tipo de investigador: desde principiantes curiosos hasta equipos
+            profesionales.
+            Nuestra historia comenzó con un grupo de exploradores nocturnos que quisieron compartir su pasión por la
+            búsqueda de lo inexplicable.
+        </p>
+    </section>
+
+    <section id="kits">
+        <h2 style="text-align:center; margin-bottom:2rem;">Nuestros Kits</h2>
+        <div class="kit-grid">
+
+            <div class="kit-card">
+                <img src="./img/demostracion.png" alt="Kitbásicoparanormal">
+                <div class="kit-card-content">
+                    <h3>Kit Investigador Básico</h3>
+                    <p>Incluye herramientas esenciales para iniciarte en el mundo de la investigación paranormal</p>
+                    <ul>
+                        <li>Medidor EMF</li>
+                        <li>Linterna UV</li>
+                        <li>Linterna LED</li>
+                        <li>Medidor temperaturas</li>
+                        <li>Laser Verde (DOTS)</li>
+                        <li>Detector de movimiento</li>
+                        <li>Cuaderno de anotaciones</li>
+                        <li>Salvia blanca</li>
+                        <li>Pegatinas de REGALO</li>
+                    </ul>
+                    <a href="#">Comprar</a>
+                </div>
+            </div>
+
+            <div class="kit-card">
+                <img src="./img/borroso.png" alt="Kit profesional paranormal">
+                <div class="kit-card-content">
+                    <h3>Kit Investigador Avanzado</h3>
+                    <p>Proximamente...</p>
+                    <a href="#">No disponible</a>
+                </div>
+            </div>
+
+            <div class="kit-card">
+                <img src="./img/borroso.png" alt="Kit de campo paranormal">
+                <div class="kit-card-content">
+                    <h3>Kit Investigador Profesional</h3>
+                    <p>Proximamente...</p>
+                    <a href="#">No disponible</a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer id="contacto">
+        <p>© 2025 Kits Paranormales. Todos los derechos reservados.</p>
+    </footer>
+
+</body>
+
+</html>
