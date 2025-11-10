@@ -46,6 +46,10 @@
             letter-spacing: 1px;
         }
 
+        nav {
+            display: flex;
+        }
+
         nav a {
             color: var(--text-color);
             margin-left: 1.5rem;
@@ -55,6 +59,43 @@
 
         nav a:hover {
             color: var(--accent-color);
+        }
+
+        /* BOTÓN HAMBURGUESA */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            justify-content: space-around;
+            width: 25px;
+            height: 25px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            z-index: 1100;
+            /* Encima del menú */
+        }
+
+        .hamburger span {
+            width: 100%;
+            height: 3px;
+            background: var(--text-color);
+            border-radius: 2px;
+            transition: all 0.3s linear;
+            position: relative;
+            transform-origin: 1px;
+        }
+
+        /* Animación para botón abierto */
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg);
         }
 
         /* Sección Quiénes somos */
@@ -142,21 +183,53 @@
 
         @media (max-width: 600px) {
             header {
-                flex-direction: column;
-                align-items: flex-start;
+                flex-direction: row;
+                align-items: center;
+                position: sticky;
             }
 
+            /* Mostrar botón hamburguesa */
+            .hamburger {
+                display: flex;
+            }
+
+            /* Ocultar menú por defecto en móvil */
             nav {
-                margin-top: 1rem;
+                position: absolute;
+                top: 60px;
+                /* altura del header + algo */
+                left: 0;
+                right: 0;
+                background: rgba(0, 0, 0, 0.95);
+                flex-direction: column;
+                align-items: flex-start;
+                padding: 1rem 2rem;
+                display: none;
+            }
+
+            nav.active {
+                display: flex;
+            }
+
+            nav a {
+                margin: 0.8rem 0;
+                font-size: 1.2rem;
             }
         }
     </style>
 </head>
 
 <body>
-
     <header>
         <h1>ParanormalKit</h1>
+
+        <!-- Botón hamburguesa -->
+        <button class="hamburger" aria-label="Abrir menú">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
         <nav>
             <a href="#about">Nosotros</a>
             <a href="#kits">Kits</a>
@@ -183,7 +256,7 @@
         <div class="kit-grid">
 
             <div class="kit-card">
-                <img src="./img/demostracion.png" alt="Kitbásicoparanormal">
+                <img src="./img/demostracion.png" alt="Kitbasicoparanormal"/>
                 <div class="kit-card-content">
                     <h3>Kit Investigador Básico</h3>
                     <p>Incluye herramientas esenciales para iniciarte en el mundo de la investigación paranormal</p>
@@ -203,7 +276,7 @@
             </div>
 
             <div class="kit-card">
-                <img src="./img/borroso.png" alt="Kit profesional paranormal">
+                <img src="./img/borroso.png" alt="Kitprofesionalparanormal" />
                 <div class="kit-card-content">
                     <h3>Kit Investigador Avanzado</h3>
                     <p>Proximamente...</p>
@@ -212,14 +285,13 @@
             </div>
 
             <div class="kit-card">
-                <img src="./img/borroso.png" alt="Kit de campo paranormal">
+                <img src="./img/borroso.png" alt="Kitdecampoparanormal" />
                 <div class="kit-card-content">
                     <h3>Kit Investigador Profesional</h3>
                     <p>Proximamente...</p>
                     <a href="#">No disponible</a>
                 </div>
             </div>
-
         </div>
     </section>
 
@@ -227,6 +299,15 @@
         <p>© 2025 Kits Paranormales. Todos los derechos reservados.</p>
     </footer>
 
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const nav = document.querySelector('nav');
+
+        hamburger.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+    </script>
 </body>
 
 </html>
